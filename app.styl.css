@@ -1,0 +1,28 @@
+body,
+html,
+.container {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  text-align: center;
+}
+
+body {
+  background-image: url(images/sky-bg-01.jpg);
+  background-size: cover;
+}
+
+.container:after {
+  display: inline-block;
+  width: 1%;
+  height: 100%;
+  content: "";
+  vertical-align: middle;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+  width: 80%;
+  vertical-align: middle;
+}
