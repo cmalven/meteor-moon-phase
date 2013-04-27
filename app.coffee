@@ -1,10 +1,18 @@
+root = exports ? this
+
 if Meteor.isClient
   Meteor.startup ->
-    # code to run on server at startup
+    updatePhase()
+    Meteor.setInterval(updatePhase, 720000)
 
   Template.index.phase_image = ->
-    return 'images/moonphase29.png'
+    currentPhase = Session.get 'current_phase'
+    return "images/moonphase#{currentPhase}.png"
 
 if Meteor.isServer
   Meteor.startup ->
     # code to run on server at startup
+
+root.updatePhase = ->
+  currentPhase = moonphase new Date()
+  Session.set 'current_phase', currentPhase
