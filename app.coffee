@@ -14,5 +14,6 @@ if Meteor.isServer
     # code to run on server at startup
 
 root.updatePhase = ->
-  currentPhase = moonphase new Date()
+  root.calc or= new MoonPhase.Calculator()
+  currentPhase = calc.getAdjustedMoonPhase new Date()
   Session.set 'current_phase', currentPhase
